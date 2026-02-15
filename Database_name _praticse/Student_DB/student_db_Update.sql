@@ -1,0 +1,230 @@
+--create database School;
+
+create table students
+(id int, 
+name varchar(50),
+city varchar(50),
+class int,
+section varchar(1),
+school_transport varchar(5),
+ph_no int);
+
+--drop table students -- it will drop the table with structure
+
+alter table students 
+add column last_n
+
+create table score
+(id int,
+name varchar(50),
+english int,
+Tamil int,
+Maths int,
+Science int,
+Social int,
+Computer int);
+
+select * from students
+
+insert into score (id,name,English,Tamil,Maths,Science,Social,Computer) values
+(1,'keerthi',70,60,97,95,80,85),
+(2,'shri',90,80,90,95,90,95),
+(3,'subbu',80,80,77,95,80,85),
+(4,'nikshi',90,80,90,95,90,95),
+
+select * from students
+
+------------------------------------------------------------------------
+--                      Constraints
+------------------------------------------------------------------------
+-- Constraint allows control over data to be stored in table
+--          ---------------------------------------------
+--          | Command     | Description                 |
+--          |-------------|-----------------------------|
+--          | NOT NULL    | NULL values not allowed     |
+--          | UNIQUE      | Duplicates not allowed      |
+--          | CHECK       | Satisfy boolean expression  |
+--          | PRIMARY KEY | Unique & Non NULL key       |
+--          | FOREIGN KEY | Key referencing primary key |
+--          ---------------------------------------------
+--
+--  SYNTAX
+
+-- CREATE TABLE <table-name> (
+--     <column-name> <type> <constraint>,
+--     <column-name> <type> <constraint>,
+--     <column-name> <type> <constraint>,
+-- )
+
+
+-- - create a table named school
+CREATE TABLE student (
+    id              INT                 UNIQUE,                 -- duplicates not allowed
+    first_name      VARCHAR(100)        NOT NULL,               -- NULL values not allowed       
+    last_name       VARCHAR(100),
+    age             INT                 CHECK(age > 16),        -- age more than 16 allowed
+    roll_number     INT                 UNIQUE NOT NULL,        -- null and duplicates not allowed
+    address         VARCHAR(250)
+);
+
+
+
+-- -- Add a constraint
+
+-- ALTER TABLE student
+--     ALTER COLUMN last_name SET NOT NULL;
+
+-- ------------------------------------------------------------------------
+
+-- -- Add a constraint
+
+-- ALTER TABLE student
+--     ADD UNIQUE (first_name);
+
+-- ALTER TABLE student
+--     ADD CONSTRAINT student_first_name_unique UNIQUE (first_name);
+
+-- ------------------------------------------------------------------------
+
+-- -- Drop and Add a constraint
+
+ALTER TABLE 
+	student
+DROP CONSTRAINT 
+	student_age_check,
+ADD CONSTRAINT 
+	student_age_check CHECK (age > 15);
+
+
+-- CRUD 
+
+-- Create -- Insert 
+
+
+INSERT INTO student (first_name, last_name, age, roll_number, id, address) VALUES
+('Aditya',     'Menon',       17, 121, 21, 'Chennai'),
+('Rithvik',    'Sharma',      16, 122, 22, 'Chennai'),
+('Ananya',     'Iyer',        17, 123, 23, 'Chennai'),
+('Vishal',     'Nair',        18, 124, 24, 'Trichy'),
+('Meera',      'Krishnan',    16, 125, 25, 'Chennai'),
+('Arnav',      'Reddy',       17, 126, 26, 'Coimbatore'),
+('Saumya',     'Pillai',      17, 127, 27, 'Kanchipuram'),
+('Kavin',      'Bharathi',    18, 128, 28, 'Coimbatore'),
+('Ishaan',     'Gupta',       16, 129, 29, 'Chennai'),
+('Nandini',    'Rajan',       17, 130, 30, 'Madurai'),
+('Reyansh',    'Kumar',       17, 131, 31, 'Salem'),
+('Diya',       'Venkatesh',   16, 132, 32, 'Hosur'),
+('Aarav',      'Mohan',       18, 133, 33, 'Madurai'),
+('Tanisha',    'Sekar',       17, 134, 34, 'Chennai'),
+('Vihaan',     'Prasad',      17, 135, 35, 'Tiruppur'),
+('Anika',      'Ramesh',      16, 136, 36, 'Chennai'),
+('Kabir',      'Narayanan',   18, 137, 37, 'Chennai'),
+('Sia',        'Menon',       17, 138, 38, 'Erode'),
+('Ayaan',      'Subramaniam', 17, 139, 39, 'Chennai'),
+('Riya',       'Chandran',    16, 140, 40, 'Chennai'),
+('Advik',      'Sundar',      17, 141, 41, 'Tirunelveli'),
+('Myra',       'Balaji',      18, 142, 42, 'Madurai'),
+('Shaurya',    'Rao',         17, 143, 43, 'Chennai'),
+('Aarohi',     'Vishwanath',  16, 144, 44, 'Madurai'),
+('Atharv',     'Murugan',     17, 145, 45, 'Chennai'),
+('Kiara',      'Thakur',      17, 146, 46, 'Salem'),
+('Rudra',      'Iyer',        18, 147, 47, 'Coimbatore'),
+('Navya',      'Nambiar',     16, 148, 48, 'Kumbakonam'),
+('Aarush',     'Kannan',      17, 149, 49, 'Chennai'),
+('Pari',       'Srinivasan',  17, 150, 50, 'Chennai'),
+('Veer',       'Rajagopal',   16, 151, 51, 'Karaikudi'),
+('Ira',        'Nair',        18, 152, 52, 'Coimbatore'),
+('Aadi',       'Varma',       17, 153, 53, 'Thanjavur'),
+('Aanya',      'Pillai',      17, 154, 54, 'Trichy'),
+('Reyaan',     'Shankar',     16, 155, 55, 'Hosur'),
+('Zara',       'Menon',       17, 156, 56, 'Chennai'),
+('Aryan',      'Krishna',     18, 157, 57, 'Madurai'),
+('Anvi',       'Raghunath',   16, 158, 58, 'Tiruppur'),
+('Aarav',      'Suresh',      17, 159, 59, 'Chennai'),
+('Mira',       'Venkat',      17, 160, 60, 'Nagercoil'),
+('Ahaan',      'Narayanan',   16, 161, 61, 'Chennai'),
+('Saanvi',     'Rajan',       18, 162, 62, 'Chennai'),
+('Aviraj',     'Muthu',       17, 163, 63, 'Erode'),
+('Prisha',     'Sundaram',    17, 164, 64, 'Salem'),
+('Advait',     'Kumar',       16, 165, 65, 'Tirunelveli'),
+('Aaradhya',   'Balasubramaniam', 17, 166, 66, 'Madurai'),
+('Vihaan',     'Gopal',       18, 167, 67, 'Chennai'),
+('Dhruv',      'Nair',        17, 168, 68, 'Coimbatore'),
+('Avni',       'Ramesh',      16, 169, 69, 'Hosur'),
+('Arjun',      'Vijay',       17, 170, 70, 'Madurai'),
+('Aadhya',     'Krishnan',    17, 171, 71, 'Trichy'),
+('Reyansh',    'Iyer',        18, 172, 72, 'Chennai'),
+('Navya',      'Subramani',   16, 173, 73, 'Chennai'),
+('Ayaan',      'Menon',       17, 174, 74, 'Coimbatore'),
+('Kiara',      'Sekar',       17, 175, 75, 'Chennai'),
+('Atharv',     'Rao',         16, 176, 76, 'Salem'),
+('Myra',       'Murugan',     18, 177, 77, 'Chennai'),
+('Shaurya',    'Nambiar',     17, 178, 78, 'Tiruppur'),
+('Anika',      'Chandran',    17, 179, 79, 'Karaikudi'),
+('Kabir',      'Prakash',     16, 180, 80, 'Kanchipuram'),
+('Sia',        'Venkatesh',   17, 181, 81, 'Chennai'),
+('Rudra',      'Srinivas',    18, 182, 82, 'Chennai'),
+('Pari',       'Balaji',      17, 183, 83, 'Madurai'),
+('Veer',       'Thakur',      16, 184, 84, 'Thanjavur'),
+('Ira',        'Gupta',       17, 185, 85, 'Hosur'),
+('Aadi',       'Narayanan',   17, 186, 86, 'Tirunelveli'),
+('Aanya',      'Raghunath',   16, 187, 87, 'Chennai'),
+('Reyaan',     'Mohan',       18, 188, 88, 'Coimbatore'),
+('Zara',       'Suresh',      17, 189, 89, 'Salem'),
+('Aryan',      'Varma',       17, 190, 90, 'Chennai'),
+('Anvi',       'Krishna',     16, 191, 91, 'Madurai'),
+('Aarush',     'Rajan',       17, 192, 92, 'Chennai'),
+('Mira',       'Pillai',      18, 193, 93, 'Chennai'),
+('Ahaan',      'Subramaniam', 17, 194, 94, 'Chennai'),
+('Saanvi',     'Vishwanath',  16, 195, 95, 'Chennai'),
+('Aviraj',     'Sundar',      17, 196, 96, 'Tiruppur'),
+('Prisha',     'Murthy',      17, 197, 97, 'Trichy'),
+('Advait',     'Nair',        16, 198, 98, 'Chennai'),
+('Aaradhya',   'Ramesh',      18, 199, 99, 'Coimbatore'),
+('Vihaan',     'Kumar',       17, 200, 100,'Madurai'),
+('Dhruv',      'Iyer',        17, 201, 101,'Hosur'),
+('Avni',       'Menon',       16, 202, 102,'Tirunelveli'),
+('Arjun',      'Sekar',       17, 203, 103,'Chennai'),
+('Aadhya',     'Rao',         18, 204, 104,'Chennai'),
+('Reyansh',    'Nambiar',     17, 205, 105,'Salem'),
+('Navya',      'Chandran',    16, 206, 106,'Karaikudi'),
+('Ayaan',      'Venkat',      17, 207, 107,'Madurai'),
+('Kiara',      'Balasubramaniam', 17, 208, 108,'Kumbakonam'),
+('Atharv',     'Prasad',      16, 209, 109,'Chennai'),
+('Myra',       'Gopal',       18, 210, 110,'Coimbatore'),
+('Shaurya',    'Srinivasan',  17, 211, 111,'Madurai'),
+('Anika',      'Thakur',      17, 212, 112,'Salem'),
+('Kabir',      'Murugan',     16, 213, 113,'Trichy'),
+('Sia',        'Narayanan',   17, 214, 114,'Chennai'),
+('Rudra',      'Raghunath',   18, 215, 115,'Chennai'),
+('Pari',       'Suresh',      17, 216, 116,'Nagercoil'),
+('Veer',       'Varma',       16, 217, 117,'Thanjavur'),
+('Ira',        'Krishnan',    17, 218, 118,'Hosur'),
+('Aadi',       'Menon',       17, 219, 119,'Madurai'),
+('Aanya',      'Iyer',        16, 220, 120,'Chennai');
+
+-- Read -- select 
+
+-- Select we get all the columns using * 
+Select * from student;
+
+-- select we need the particular columns
+select id,first_name,age from student;
+
+-- we can also retired particular row using some condition 
+select * from student
+where age <= 16;
+-- 28 records 
+
+-- Update -- change the existing record
+
+
+-- select all students whose name contains an
+-- 29 records 
+select * from student 
+where last_name like '%an%'
+
+
+
+
+

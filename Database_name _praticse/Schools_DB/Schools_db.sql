@@ -218,7 +218,10 @@ where age <= 16;
 
 -- Update -- change the existing record
 
-sel
+
+-- select all students whose name contains an
+select * from student 
+where name like '%an%'
 
 
 
