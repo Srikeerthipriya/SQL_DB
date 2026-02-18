@@ -40,7 +40,7 @@ GROUP BY
 HAVING
 	SUM(QUANTITY) > 2;
 
- -- min order quantity more than 10
+ -- min order quantity more than 10 only for chennai & bengaluru
 
 -- 9 city 
 SELECT
@@ -48,6 +48,8 @@ SELECT
 	SUM(QUANTITY)
 FROM
 	SALES
+where 
+    Region in ('Chennai','Bengaluru')
 GROUP BY
 	REGION
 HAVING
