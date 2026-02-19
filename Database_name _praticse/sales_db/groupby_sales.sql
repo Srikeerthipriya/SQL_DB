@@ -55,5 +55,8 @@ GROUP BY
 HAVING
 	SUM(QUANTITY) > 10;
 
+
+
+
  
 
