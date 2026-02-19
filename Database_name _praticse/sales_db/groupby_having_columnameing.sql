@@ -45,3 +45,22 @@ GROUP BY
 	REGION, Category
 HAVING
 	SUM(QUANTITY) > 10;
+
+
+ -- min order quantity more than 10 in each category only for chennai & bengaluru
+
+-- 4 city 
+SELECT
+	REGION, Category,
+	MAX(PRICE) as "Maxium Price",
+	MIN(PRICE) as "Minimum Price",
+	SUM(PRICE) as "Total Price",
+	Sum(quantity) as "Total Quantity"
+FROM
+	SALES
+where 
+    Region in ('Chennai','Bengaluru')
+GROUP BY
+	REGION, Category
+HAVING
+	SUM(QUANTITY) > 10;
